@@ -1,0 +1,51 @@
+Luồng giám sát từ Zabbix Server đến Telegram cho processes, services, ports
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+1. Processes (check_process.sh)
+- Zabbix Server: Tạo Item với key `proc.check[<name>]` (type: Zabbix Agent, kiểu dữ liệu: Numeric). Ví dụ: `proc.check[abc]` cho dịch vụ abc.
+- User Parameter: Trong `/etc/zabbix/zabbix_agentd.conf`:
+  UserParameter=proc.check[*],/etc/zabbix/scripts/check_process.sh $1
+  Zabbix Agent gọi script `check_process.sh` với tham số `<name>` (vd: abc).
+- Script check_process.sh:
+  - Đọc `/etc/zabbix/configs/processes.conf`, tìm dòng khớp `<name>`.
+  - Kiểm tra số tiến trình (`ps -ef | grep <pattern>`) so với `min_count`.
+  - Ghi trạng thái vào file log (`/var/log/zabbix/proc_<name>_up` hoặc `_down`).
+  - Nếu `no_alert=1`, chỉ ghi log, trả về 0 (OK).
+  - Nếu số tiến trình < `min_count`, tính thời gian down (`down_sec`).
+  - Trả về: 0 (OK), 1 (Warning: `down_sec ≥ warning_sec`), 2 (High: `down_sec ≥ high_sec`), 4 (Info: `down_sec < warning_sec`), 3 (Lỗi cấu hình).
+- Zabbix Trigger: Tạo trigger, ví dụ: `{host:proc.check[abc].last()}=1` (Warning) hoặc `=2` (High).
+- Telegram Alert: Nếu `no_alert=0`, Zabbix Action gửi thông báo đến Telegram qua webhook/script khi trigger kích hoạt (trạng thái 1 hoặc 2).
+
+----------------------------------------------------------------------------------------------------------------------------------------
+2. Services (check_service.sh)
+- Zabbix Server: Tạo Item với key `svc.check[<name>]` (type: Zabbix Agent, kiểu dữ liệu: Numeric). Ví dụ: `svc.check[nginx_service]`.
+- User Parameter: Trong `/etc/zabbix/zabbix_agentd.conf`:
+  UserParameter=svc.check[*],/etc/zabbix/scripts/check_service.sh $1
+  Zabbix Agent gọi script `check_service.sh` với tham số `<name>` (vd: nginx_service).
+- Script check_service.sh:
+  - Đọc `/etc/zabbix/configs/services.conf`, tìm dòng khớp `<name>`.
+  - Kiểm tra trạng thái dịch vụ (`systemctl is-active <service_name>`), gán `count=1` nếu "active", `count=0` nếu không.
+  - Ghi trạng thái vào file log (`/var/log/zabbix/svc_<name>_up` hoặc `_down`).
+  - Nếu `no_alert=1`, chỉ ghi log, trả về 0 (OK).
+  - Nếu `count < min_count`, tính thời gian down (`down_sec`).
+  - Trả về: 0 (OK), 1 (Warning: `down_sec ≥ warning_sec`), 2 (High: `down_sec ≥ high_sec`), 4 (Info: `down_sec < warning_sec`), 3 (Lỗi cấu hình).
+- Zabbix Trigger: Tạo trigger, ví dụ: `{host:svc.check[nginx_service].last()}=1` (Warning) hoặc `=2` (High).
+- Telegram Alert: Nếu `no_alert=0`, Zabbix Action gửi thông báo đến Telegram qua webhook/script khi trigger kích hoạt (trạng thái 1 hoặc 2).
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+3. Ports (check_port.sh)
+- Zabbix Server: Tạo Item với key `port.check[<name>]` (type: Zabbix Agent, kiểu dữ liệu: Numeric). Ví dụ: `port.check[web_http]`.
+- User Parameter: Trong `/etc/zabbix/zabbix_agentd.conf`:
+  UserParameter=port.check[*],/etc/zabbix/scripts/check_port.sh $1
+  Zabbix Agent gọi script `check_port.sh` với tham số `<name>` (vd: web_http).
+- Script check_port.sh:
+  - Đọc `/etc/zabbix/configs/ports.conf`, tìm dòng khớp `<name>`.
+  - Kiểm tra số socket listen (`ss -tuln | grep ":<port>"`) so với `min_count`.
+  - Ghi trạng thái vào file log (`/var/log/zabbix/port_<name>_up` hoặc `_down`).
+  - Nếu `no_alert=1`, chỉ ghi log, trả về 0 (OK).
+  - Nếu số socket < `min_count`, tính thời gian down (`down_sec`).
+  - Trả về: 0 (OK), 1 (Warning: `down_sec ≥ warning_sec`), 2 (High: `down_sec ≥ high_sec`), 4 (Info: `down_sec < warning_sec`), 3 (Lỗi cấu hình).
+- Zabbix Trigger: Tạo trigger, ví dụ: `{host:port.check[web_http].last()}=1` (Warning) hoặc `=2` (High).
+- Telegram Alert: Nếu `no_alert=0`, Zabbix Action gửi thông báo đến Telegram qua webhook/script khi trigger kích hoạt (trạng thái 1 hoặc 2).

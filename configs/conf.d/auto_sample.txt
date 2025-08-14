@@ -1,0 +1,13 @@
+$seekfilesdir = '/tmp/check_logfiles/seekfilesdir';
+$protocolsdir = '/tmp/check_logfiles/protocolsdir';
+@searches = (
+{
+tag => 'AUTOSAMPLE_ERROR',
+logfile => '/opt/logs_application/AUTOSAMPLE/error/error.log',
+criticalpatterns => ['ERROR'],
+warningpatterns => [ 'STYLERWARN' ],
+okpatterns => ['No such property'],
+savestate => on,
+},
+
+);

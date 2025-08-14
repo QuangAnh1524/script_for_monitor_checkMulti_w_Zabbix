@@ -1,0 +1,24 @@
+1. INPUT: checklog[api_error,2,5]
+   ├── TAG = api_error
+   ├── MIN = 2, MAX = 5
+   └── CONFIG = api_error.conf
+
+2. NAGIOS SCAN:
+   ├── /path/to/check_logfiles --tag api_error -f api_error.conf
+   └── Ghi kết quả → scripts_api_error_ERROR.txt
+
+3. ĐỌC KẾT QUẢ:
+   ├── tail -n 1 history_file
+   └── Parse: OK/ERROR?
+
+4. XỬ LÝ COUNTER:
+   ├── Nếu OK: counter = 0, return 0
+   └── Nếu ERROR: counter++, ghi file
+
+5. CHECK THRESHOLD:
+   ├── MIN ≤ counter ≤ MAX? → return 1 (ALERT)
+   └── Ngược lại → return 0 (OK)
+
+6. ZABBIX NHẬN:
+   ├── 0 → Trigger OK/RESOLVED  
+   └── 1 → Trigger 

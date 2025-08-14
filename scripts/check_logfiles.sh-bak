@@ -1,0 +1,40 @@
+#!/bin/bash
+
+
+
+list="Ask-Question
+AuthenService
+ContentClient
+EurekaServer
+tnvn_rest_controller"
+
+
+
+check_log_exist=`cat /tmp/check_multi_log.log | grep -E 'PROBLEM|OK' | wc -l`
+if [ $check_log_exist -eq 5 ]
+ then
+  tuan=5
+else
+echo "PROBLEM - Ask-Question
+PROBLEM - AuthenService
+PROBLEM - ContentClient
+PROBLEM - EurekaServer 
+PROBLEM - tnvn_rest_controller" > /tmp/check_multi_log.log
+fi
+
+
+
+##################
+for i in $list 
+do
+/etc/zabbix/scripts/check_logfiles/sub_scripts/scripts_${i}_ERROR.sh >> /etc/zabbix/scripts/check_logfiles/history_logs/scripts_${i}_ERROR.txt
+check=`tail -n 1 /etc/zabbix/scripts/check_logfiles/history_logs/scripts_${i}_ERROR.txt | grep CRITICAL | wc -l`
+if [ $check -gt 0 ] 
+then
+  sed -i -e 's/OK - '${i}'/PROBLEM - '${i}'/g' /tmp/check_multi_log.log
+else
+ sed -i -e 's/PROBLEM - '${i}'/OK - '${i}'/g' /tmp/check_multi_log.log
+fi
+done
+
+
