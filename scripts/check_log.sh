@@ -99,8 +99,8 @@ echo "$repeat" > "$REPEATFILE"
 # Logic range threshold - hoàn toàn dynamic từ item
 if [ "$repeat" -ge "$MIN_THRESHOLD" ]; then
     echo 1
-    exit 1  # ALERT (trong range)
+    #exit 1  # ALERT (trong range)
 else
-    exit 0
-    echo 0  # OK (ngoài range hoặc chưa đủ)
+    echo 0
+    #exit 0  # OK (ngoài range hoặc chưa đủ)
 fi
