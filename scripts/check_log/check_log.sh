@@ -1,5 +1,4 @@
 #!/bin/bash
-# File: /home/qanh1524/configs_and_Scripts/scripts/check_log.sh
 # Usage: check_log.sh <TAG_NAME> <MIN_THRESHOLD> [MAX_THRESHOLD]
 # Logic: Support range threshold, không hardcode gì cả
 
@@ -7,10 +6,10 @@ TAG=$1
 MIN_THRESHOLD=$2
 MAX_THRESHOLD=$3
 
-BASE_DIR="/etc/zabbix/script_configs"
-CONFIG_FILE="${BASE_DIR}/configs/conf.d/${TAG}.conf"
-CHECK_LOGFILES_CMD="${BASE_DIR}/scripts/check_logfiles"
-HIST_FILE="${BASE_DIR}/configs/history_logs/scripts_${TAG}_ERROR.txt"
+BASE_DIR="/etc/zabbix/scripts/check_log"
+CONFIG_FILE="${BASE_DIR}/configs/${TAG}.conf"
+CHECK_LOGFILES_CMD="${BASE_DIR}/scripts/check_log/check_logfiles"
+HIST_FILE="${BASE_DIR}/history_logs/scripts_${TAG}_ERROR.txt"
 
 # Validation input
 if [ -z "$TAG" ] || [ -z "$MIN_THRESHOLD" ] || [ ! -f "$CONFIG_FILE" ]; then
@@ -28,7 +27,7 @@ if [ "$MIN_THRESHOLD" -gt "$MAX_THRESHOLD" ]; then
 fi
 
 # Tạo thư mục history_logs nếu chưa có
-mkdir -p "${BASE_DIR}/configs/history_logs"
+mkdir -p "${BASE_DIR}/history_logs"
 
 # Chạy check_logfiles và ghi ra history file
 "$CHECK_LOGFILES_CMD" -f "$CONFIG_FILE" >> "$HIST_FILE"

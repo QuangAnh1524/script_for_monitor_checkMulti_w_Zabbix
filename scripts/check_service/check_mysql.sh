@@ -12,10 +12,10 @@ EXPECTED="10"
 RESULT=$(mysql -h "$HOST" -P "$PORT" -D "$DATABASE" -u "$USER" -p"$PASS" -se "$QUERY" 2>/dev/null)
 
 if [ "$RESULT" == "$EXPECTED" ]; then
-    echo 0
-    exit 0
-else
     echo 1
     exit 1
+else
+    echo 0
+    exit 0
 fi
 

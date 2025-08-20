@@ -8,10 +8,10 @@ TIMEOUT=5
 BODY=$(curl -s --max-time "$TIMEOUT" "$URL")
 
 if echo "$BODY" | grep -q "$EXPECTED"; then
-    echo 0
-    exit 0
-else
     echo 1
     exit 1
+else
+    echo 0
+    exit 0
 fi
 
