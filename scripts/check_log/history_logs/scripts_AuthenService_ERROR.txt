@@ -1,0 +1,7 @@
+OK - no errors or warnings|'AuthenService_ERROR_lines'=0 'AuthenService_ERROR_warnings'=0 'AuthenService_ERROR_criticals'=0 'AuthenService_ERROR_unknowns'=0
+OK - no errors or warnings|'AuthenService_ERROR_lines'=0 'AuthenService_ERROR_warnings'=0 'AuthenService_ERROR_criticals'=0 'AuthenService_ERROR_unknowns'=0
+OK - no errors or warnings|'AuthenService_ERROR_lines'=0 'AuthenService_ERROR_warnings'=0 'AuthenService_ERROR_criticals'=0 'AuthenService_ERROR_unknowns'=0
+OK - no errors or warnings|'AuthenService_ERROR_lines'=0 'AuthenService_ERROR_warnings'=0 'AuthenService_ERROR_criticals'=0 'AuthenService_ERROR_unknowns'=0
+CRITICAL - (169 errors) - 14/12/2020 10:26:19 ERROR [http-nio-8386-exec-214] AuthenController: Can not Delete FireBase with userId : 58618 ...|'AuthenService_ERROR_lines'=307 'AuthenService_ERROR_warnings'=0 'AuthenService_ERROR_criticals'=169 'AuthenService_ERROR_unknowns'=0
+CRITICAL - (10 errors) - 14/12/2020 10:29:39 ERROR [http-nio-8386-exec-219] StringUtil: java.text.ParseException: Unparseable date: "" ...|'AuthenService_ERROR_lines'=21 'AuthenService_ERROR_warnings'=0 'AuthenService_ERROR_criticals'=10 'AuthenService_ERROR_unknowns'=0
+CRITICAL - (42 errors) - 14/12/2020 10:41:41 ERROR [http-nio-8386-exec-214] AuthenController: Can not Delete FireBase with userId : 52 ...|'AuthenService_ERROR_lines'=82 'AuthenService_ERROR_warnings'=0 'AuthenService_ERROR_criticals'=42 'AuthenService_ERROR_unknowns'=0

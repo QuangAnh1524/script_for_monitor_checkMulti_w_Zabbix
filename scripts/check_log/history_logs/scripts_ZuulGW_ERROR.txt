@@ -1,0 +1,7 @@
+OK - no errors or warnings|'ZuulGW_ERROR_lines'=0 'ZuulGW_ERROR_warnings'=0 'ZuulGW_ERROR_criticals'=0 'ZuulGW_ERROR_unknowns'=0
+OK - no errors or warnings|'ZuulGW_ERROR_lines'=447 'ZuulGW_ERROR_warnings'=0 'ZuulGW_ERROR_criticals'=0 'ZuulGW_ERROR_unknowns'=0
+OK - no errors or warnings|'ZuulGW_ERROR_lines'=0 'ZuulGW_ERROR_warnings'=0 'ZuulGW_ERROR_criticals'=0 'ZuulGW_ERROR_unknowns'=0
+OK - no errors or warnings|'ZuulGW_ERROR_lines'=78 'ZuulGW_ERROR_warnings'=0 'ZuulGW_ERROR_criticals'=0 'ZuulGW_ERROR_unknowns'=0
+OK - no errors or warnings|'ZuulGW_ERROR_lines'=158 'ZuulGW_ERROR_warnings'=0 'ZuulGW_ERROR_criticals'=0 'ZuulGW_ERROR_unknowns'=0
+UNKNOWN - (1 unknown) - could not find logfile /opt/tnvn/sourcecode/ZuulGW/log/fullLog.log |'ZuulGW_ERROR_lines'=0 'ZuulGW_ERROR_warnings'=0 'ZuulGW_ERROR_criticals'=0 'ZuulGW_ERROR_unknowns'=1
+UNKNOWN - (1 unknown) - could not find logfile /opt/tnvn/sourcecode/ZuulGW/log/fullLog.log |'ZuulGW_ERROR_lines'=0 'ZuulGW_ERROR_warnings'=0 'ZuulGW_ERROR_criticals'=0 'ZuulGW_ERROR_unknowns'=1

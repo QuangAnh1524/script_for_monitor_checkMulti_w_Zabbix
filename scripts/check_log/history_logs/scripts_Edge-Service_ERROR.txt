@@ -1,0 +1,7 @@
+OK - no errors or warnings|'Edge-Service_ERROR_lines'=0 'Edge-Service_ERROR_warnings'=0 'Edge-Service_ERROR_criticals'=0 'Edge-Service_ERROR_unknowns'=0
+CRITICAL - (131 errors) - ERROR 07/12/2020 09:37:41  INFO [pool-7-thread-1] LoadOperatingSystemDataRunnable: LoadOperatingSystemDataRunnable finished at 2020-12-07 09:37:41 ...|'Edge-Service_ERROR_lines'=147461 'Edge-Service_ERROR_warnings'=0 'Edge-Service_ERROR_criticals'=131 'Edge-Service_ERROR_unknowns'=0
+OK - no errors or warnings|'Edge-Service_ERROR_lines'=0 'Edge-Service_ERROR_warnings'=0 'Edge-Service_ERROR_criticals'=0 'Edge-Service_ERROR_unknowns'=0
+OK - no errors or warnings|'Edge-Service_ERROR_lines'=0 'Edge-Service_ERROR_warnings'=0 'Edge-Service_ERROR_criticals'=0 'Edge-Service_ERROR_unknowns'=0
+OK - no errors or warnings|'Edge-Service_ERROR_lines'=0 'Edge-Service_ERROR_warnings'=0 'Edge-Service_ERROR_criticals'=0 'Edge-Service_ERROR_unknowns'=0
+UNKNOWN - (1 unknown) - could not find logfile /opt/tnvn/sourcecode/EdgeService/log/fullLog.log |'Edge-Service_ERROR_lines'=0 'Edge-Service_ERROR_warnings'=0 'Edge-Service_ERROR_criticals'=0 'Edge-Service_ERROR_unknowns'=1
+UNKNOWN - (1 unknown) - could not find logfile /opt/tnvn/sourcecode/EdgeService/log/fullLog.log |'Edge-Service_ERROR_lines'=0 'Edge-Service_ERROR_warnings'=0 'Edge-Service_ERROR_criticals'=0 'Edge-Service_ERROR_unknowns'=1

@@ -1,0 +1,9 @@
+OK - no errors or warnings|'api_it_ERROR_lines'=0 'api_it_ERROR_warnings'=0 'api_it_ERROR_criticals'=0 'api_it_ERROR_unknowns'=0
+OK - no errors or warnings|'api_it_ERROR_lines'=143 'api_it_ERROR_warnings'=0 'api_it_ERROR_criticals'=0 'api_it_ERROR_unknowns'=0
+OK - no errors or warnings|'api_it_ERROR_lines'=1 'api_it_ERROR_warnings'=0 'api_it_ERROR_criticals'=0 'api_it_ERROR_unknowns'=0
+OK - no errors or warnings|'api_it_ERROR_lines'=552 'api_it_ERROR_warnings'=0 'api_it_ERROR_criticals'=0 'api_it_ERROR_unknowns'=0
+OK - no errors or warnings|'api_it_ERROR_lines'=0 'api_it_ERROR_warnings'=0 'api_it_ERROR_criticals'=0 'api_it_ERROR_unknowns'=0
+OK - no errors or warnings|'api_it_ERROR_lines'=527 'api_it_ERROR_warnings'=0 'api_it_ERROR_criticals'=0 'api_it_ERROR_unknowns'=0
+OK - no errors or warnings|'api_it_ERROR_lines'=352 'api_it_ERROR_warnings'=0 'api_it_ERROR_criticals'=0 'api_it_ERROR_unknowns'=0
+OK - no errors or warnings|'api_it_ERROR_lines'=54 'api_it_ERROR_warnings'=0 'api_it_ERROR_criticals'=0 'api_it_ERROR_unknowns'=0
+OK - no errors or warnings|'api_it_ERROR_lines'=272 'api_it_ERROR_warnings'=0 'api_it_ERROR_criticals'=0 'api_it_ERROR_unknowns'=0
